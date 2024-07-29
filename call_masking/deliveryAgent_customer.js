@@ -2,7 +2,7 @@ const { Piopiy } = require("piopiy");
 const piopiy = new Piopiy("your_appid", "your_app_token");
 
 const agent_number = "Agent phone number"; // Your agent phone number with country code, Number type
-const caller_id = "Caller ID"; // Your caller ID, Number type
+const call_masking_number = "Call masking number"; // Your call masking number of pioiy TeleCMI platform, Number type
 const customer_number = "Customer number"; // Your customer phone number, Number type
 const options = {
     duration: 10,       // (Optional) Maximum duration of the call in seconds, Number type
@@ -11,7 +11,7 @@ const options = {
 }; // Object type
 
 
-piopiy.voice.call(agent_number, caller_id, customer_number, options)
+piopiy.voice.call(agent_number, call_masking_number, customer_number, options)
     .then((res) => {
         console.log("Call connected, answer URL:", res);
     })
