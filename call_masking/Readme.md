@@ -28,7 +28,7 @@ npm install piopiy
 
 ### 3. Configure the Call Parameters
 
-Replace the placeholders in the script with your actual values for appid, app_token, delivery_agent_number, call_masking_number, and customer_number.
+Replace the placeholders in the script with your actual values for **appid**, **app_token**, **delivery_agent_number**, **call_masking_number**, and **customer_number**.
 
 ### 4. Run the Code
 
