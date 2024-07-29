@@ -1,13 +1,23 @@
+const express = require("express");
 const { PiopiyAction } = require("piopiy");
-const action = new PiopiyAction();
+const app = express();
+app.use(express.json())
 
-action.call(
-    917600000000,         // Customer phone number with country code
-    918000000000,         // Caller ID
-    {
-        duration: 10,
-        timeout: 20,
-        loop: 2,
-        record: true
-    }
-);
+
+app.post('/inbound', (req, res) => {
+
+    const action = new PiopiyAction();
+
+    const customer_number = "Customer number"; // Your customer phone number with country code, Number type
+    const caller_id = "Caller ID"; // Your caller ID, Number type
+    const options = {
+        duration: 10,       // (Optional) Maximum duration of the call in seconds
+        timeout: 20,        // (Optional) Time to wait for the call to be answered
+        loop: 1            // (Optional) Number of retry attempts if the call is not answered
+    }; // Object type
+
+    action.call(customer_number, caller_id, options)
+    res.send(action.PCMO())
+});
+
+app.listen(3001);

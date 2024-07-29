@@ -13,8 +13,7 @@ piopiy.voice.call(
     {
         duration: 10,       // (Optional) Maximum duration of the call in seconds
         timeout: 20,        // (Optional) Time to wait for the call to be answered
-        loop: 1,            // (Optional) Number of retry attempts if the call is not answered
-        record: true        // (Optional) Whether to record the call
+        loop: 1            // (Optional) Number of retry attempts if the call is not answered
     }
 ).then(res => {
     console.log('Call connected, answer URL:', res);
