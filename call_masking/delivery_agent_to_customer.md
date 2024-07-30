@@ -1,6 +1,6 @@
 # Piopiy Voice Call Example ( Delivery Agent to Customer )
 
-This example demonstrates how to use the Piopiy package to make a voice call from a delivery agent to a customer using a call masking number.
+This example shows how to make a call from a delivery agent to a customer using a call masking number with the Piopiy package.
 
 ## Steps to run the code
 

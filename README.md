@@ -33,7 +33,7 @@ Once inside the project directory, install the required npm packages:
 npm install
 ```
 
-## Piopiy Call Types
+## Piopiy call types
 
 This example provides detailed information on how to use the Piopiy package to manage various types of voice calls, including:
 

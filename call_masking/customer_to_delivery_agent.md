@@ -1,6 +1,6 @@
 # Piopiy Voice Call Example (Customer to Delivery Agent)
 
-This example demonstrates how to use the Piopiy package to make a voice call from a customer to a delivery agent using a call masking number.
+This example shows how to make a call from a customer to a delivery agent using a call masking number with Piopiy package.
 
 ## Steps to run the code
 
@@ -83,4 +83,5 @@ https://abcd1234.ngrok.io/inbound
 When the code is executed, the call will follow these steps:
 
 **1.Initial call to Call Masking Number:** The call is initiated from the customer to the call masking number.
+
 **2.Call received by Delivery Agent:** The delivery agent receives the call via the call masking number.
