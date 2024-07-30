@@ -57,7 +57,7 @@ app.post("/inbound", (req, res) => {
   const call_masking_number = "your call masking number"; // Example call masking number
   const options = { duration: 15, timeout: 25, loop: 2 };
 
-  action.call( delivery_agent_number, call_masking_number, options  );
+  action.call(delivery_agent_number, call_masking_number, options);
   res.send(action.PCMO());
 });
 
@@ -87,10 +87,10 @@ These are the list of parameters and its description
 
 ### 5. Create a public URL using ngrok
 
-ngrok http 3001
+To expose your local server to the internet, use ngrok to create a public URL:
 
 ```sh
-node call_masking/customer_to_delivery_agent.js
+ngrok http 3001
 ```
 
 Copy the URL provided by ngrok. This URL will look something like **https://abcd1234.ngrok.io**.
