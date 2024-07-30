@@ -1,6 +1,6 @@
 # Piopiy Call Masking Integration
 
-This document provides detailed information on how to use the Piopiy library to manage various types of call masking.
+This example provides detailed information on how to use the Piopiy package to manage various types of call masking.
 
 ## Types of Call Masking
 

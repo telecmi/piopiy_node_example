@@ -8,7 +8,7 @@ app.post('/inbound', (req, res) => {
 
     const action = new PiopiyAction();
 
-    const customer_number = "Customer number"; // Your customer phone number with country code
+    const delivery_agent_number = "Delivery agent phone number"; // Your agent phone number with country code.
     const call_masking_number = "Call masking number"; // Your call masking number provided by the Piopiy TeleCMI platform.
     const options = {
         duration: 10,       // (Optional) Maximum duration of the call in seconds
@@ -16,7 +16,7 @@ app.post('/inbound', (req, res) => {
         loop: 1            // (Optional) Number of retry attempts if the call is not answered
     };
 
-    action.call(customer_number, call_masking_number, options)
+    action.call(delivery_agent_number, call_masking_number, options)
     res.send(action.PCMO())
 });
 

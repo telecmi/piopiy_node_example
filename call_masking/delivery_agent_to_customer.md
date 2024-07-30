@@ -1,28 +1,39 @@
 # Piopiy Voice Call Example ( Delivery Agent to Customer )
 
-This example demonstrates how to use the Piopiy library to make a voice call from a delivery agent to a customer using a call masking number.
+This example demonstrates how to use the Piopiy package to make a voice call from a delivery agent to a customer using a call masking number.
 
 ## Steps to run the code
 
-### 1. Configure the call parameters
+### 1.Prerequisites
 
-Replace the placeholders in the script with your actual values for **app_id**, **app_secret**, **delivery_agent_number**, **call_masking_number**, and **customer_number**.
+Before you start, ensure you have completed the [ prerequisite steps ](/README.md).
 
-### 2. Run the code
+### 2.Configure the call parameters
 
-Execute the script using Node.js:
+Replace the value in the [ Delivery agent to customer ](/call_masking/delivery_agent_to_customer.js) code with your actual values for
+
+- [**app_id** & **app_secret**](https://github.com/telecmi/piopiy_node_example/blob/development/call_masking/delivery_agent_to_customer.js#L2)
+- [**delivery_agent_number**](https://github.com/telecmi/piopiy_node_example/blob/development/call_masking/delivery_agent_to_customer.js#L4)
+- [**call_masking_number**](https://github.com/telecmi/piopiy_node_example/blob/development/call_masking/delivery_agent_to_customer.js#L5)
+- [**customer_number**](https://github.com/telecmi/piopiy_node_example/blob/development/call_masking/delivery_agent_to_customer.js#L6)
+
+### 3.Run the code
+
+Execute the code using Node.js:
 
 ```sh
 node call_masking/delivery_agent_to_customer.js
 ```
 
+### 4.Expected call flow
+
 When the code is executed, the call will follow these steps:
 
-1.**Initial call to Delivery agent:** The call is initiated to the delivery agent's number first.
+**1.Initial call to Delivery agent:** The call is initiated to the delivery agent's number first.
 
-2.**Delivery agent answers call:** Once the agent answers the call, the call will automatically connect to the customer's number.
+**2.Delivery agent answers call:** Once the agent answers the call, the call will automatically connect to the customer's number.
 
-You can handle these steps programmatically using the Piopiy library. Ensure that your **app_id** and **app_secret** are correctly configured, and the **numbers** provided are valid.
+You can handle these steps programmatically using the Piopiy package. Ensure that your [**app_id** & **app_secret**](https://github.com/telecmi/piopiy_node_example/blob/development/call_masking/delivery_agent_to_customer.js#L2) are correctly configured, and the [**delivery_agent_number**](https://github.com/telecmi/piopiy_node_example/blob/development/call_masking/delivery_agent_to_customer.js#L4), [**call_masking_number**](https://github.com/telecmi/piopiy_node_example/blob/development/call_masking/delivery_agent_to_customer.js#L5), and [**customer_number**](https://github.com/telecmi/piopiy_node_example/blob/development/call_masking/delivery_agent_to_customer.js#L6) provided are valid.
 
 ## Example usage
 
