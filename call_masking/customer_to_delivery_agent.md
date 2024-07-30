@@ -97,7 +97,7 @@ Copy the URL provided by ngrok. This URL will look something like **https://abcd
 
 ### 6. Configure Piopiy dashboard
 
-Log in to your Piopiy dashboard and paste the ngrok URL into the "Answer URL" input field. Ensure that the endpoint is set correctly to handle inbound calls.
+Log in to your <a href="https://developer.telecmi.com" target="_blank">Piopiy dashboard</a> and paste the ngrok URL into the "Answer URL" input field. Ensure that the endpoint is set correctly to handle inbound calls.
 
 ```sh
 https://abcd1234.ngrok.io/inbound
