@@ -2,43 +2,13 @@
 
 This example demonstrates how to use the Piopiy library to make a voice call from a delivery agent to a customer using a call masking number.
 
-## Prerequisites
-
-Before you start, ensure you have the following:
-
-- <a href="https://git-scm.com/" target="_blank">git</a> (>= 2.45.2 required)
-- <a href="https://nodejs.org/en/" target="_blank">node.js</a> (>= v20.12.0 required)
-- <a href="https://www.npmjs.com/" target="_blank">npm</a> (>= 10.8.2 required)
-
 ## Steps to run the code
 
-### 1. Clone the repository
-
-Use the **git clone** command to clone the PIOPIY node from our <a href="https://github.com/telecmi/piopiy_node_example" target="_blank">TeleCMI github repository</a>.
-
-```bash
-git clone https://github.com/telecmi/piopiy_node_example.git
-```
-
-First, clone this repository to your local machine:
-
-```sh
-cd piopiy_node_example
-```
-
-### 2. Install the piopiy npm package
-
-Navigate to the project directory and install the piopiy npm package:
-
-```sh
-npm install piopiy
-```
-
-### 3. Configure the call parameters
+### 1. Configure the call parameters
 
 Replace the placeholders in the script with your actual values for **app_id**, **app_secret**, **delivery_agent_number**, **call_masking_number**, and **customer_number**.
 
-### 4. Run the code
+### 2. Run the code
 
 Execute the script using Node.js:
 
