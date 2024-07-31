@@ -12,10 +12,11 @@ Before you start, ensure you have completed the [ prerequisite steps ](/README.m
 
 Replace the value in the [ order confirmation call ](/order_confirmation_call/confirmation_call.js) code with your actual values for
 
-- [**app_id** & **app_secret**]()
-- [**music_file**]()
-- [**customer_number**]()
-- [**caller_id**]()
+- [**app_id** & **app_secret**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L6)
+- [**ngrok URL**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L10)
+- [**music_file**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L9)
+- [**customer_number**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L11)
+- [**caller_id**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L12)
 
 ### 3. Create a public URL using ngrok
 
@@ -29,7 +30,7 @@ Copy the URL provided by ngrok. This URL will look something like **https://abcd
 
 ### 4.Configure piopiy to use the ngrok URL
 
-In your code where you configure the [ngrok_url](), replace it with the copied Ngrok URL, appending the **/dtmf** path. For example:
+In your code where you configure the [ngrok URL](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L10), replace it with the copied Ngrok URL, appending the **/dtmf** path. For example:
 
 ```sh
 const ngrok_url = 'https://abcd1234.ngrok.io/dtmf'; // Replace with your actual Ngrok URL
@@ -57,7 +58,7 @@ When the code is executed, the call will follow these steps:
 - If the customer presses 1, a confirmation music file plays.
 - If the customer does not press 1 or presses another button, a different music file plays indicating the order was not confirmed.
 
-You can handle these steps programmatically using the Piopiy package. Ensure that your [**app_id** & **app_secret**]() are correctly configured, and the [**music_file**](), [**customer_number**](), [**caller_id**]() and [**ngrok URL**]() provided are valid.
+You can handle these steps programmatically using the Piopiy package. Ensure that your [**app_id** & **app_secret**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L6) are correctly configured, and the [**music_file**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L9), [**customer_number**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L11), [**caller_id**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L12) and [**ngrok URL**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L10) provided are valid.
 
 ## Example usage
 
