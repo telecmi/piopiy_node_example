@@ -43,7 +43,7 @@ This example provides detailed information on how to use the Piopiy package to m
 
 - [Customer to delivery agent](/call_masking/customer_to_delivery_agent.md)
 
-#### [Transaction alert call](/transaction_alert_call/alert_call.js)
+#### [Transaction alert call](/transaction_alert_call/README.md)
 
 #### [Order confirmation call](/order_confirmation_call/confirmation_call.js)
 

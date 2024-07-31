@@ -12,10 +12,10 @@ Before you start, ensure you have completed the [ prerequisite steps ](/README.m
 
 Replace the value in the [ Transaction alert call ](/transaction_alert_call/alert_call.js) code with your actual values for
 
-- [**app_id** & **app_secret**]()
-- [**music_file**]()
-- [**customer_number**]()
-- [**caller_id**]()
+- [**app_id** & **app_secret**](https://github.com/telecmi/piopiy_node_example/blob/development/transaction_alert_call/alert_call.js#L2)
+- [**music_file**](https://github.com/telecmi/piopiy_node_example/blob/development/transaction_alert_call/alert_call.js#L5)
+- [**customer_number**](https://github.com/telecmi/piopiy_node_example/blob/development/transaction_alert_call/alert_call.js#L6)
+- [**caller_id**](https://github.com/telecmi/piopiy_node_example/blob/development/transaction_alert_call/alert_call.js#L7)
 
 ### 3.Run the code
 
@@ -33,7 +33,7 @@ When the code is executed, the call will follow these steps:
 
 **2.Customer Answers Call:** Once the customer answers the call, alert music is played to notify them of the transaction.
 
-You can handle these steps programmatically using the Piopiy package. Ensure that your [**app_id** & **app_secret**]() are correctly configured, and the [**music_file**](), [**customer_number**]() and [**caller_id**]() provided are valid.
+You can handle these steps programmatically using the Piopiy package. Ensure that your [**app_id** & **app_secret**](https://github.com/telecmi/piopiy_node_example/blob/development/transaction_alert_call/alert_call.js#L2) are correctly configured, and the [**music_file**](https://github.com/telecmi/piopiy_node_example/blob/development/transaction_alert_call/alert_call.js#L5), [**customer_number**](https://github.com/telecmi/piopiy_node_example/blob/development/transaction_alert_call/alert_call.js#L6) and [**caller_id**](https://github.com/telecmi/piopiy_node_example/blob/development/transaction_alert_call/alert_call.js#L7) provided are valid.
 
 ## Example usage
 
@@ -44,7 +44,7 @@ const { Piopiy, PiopiyAction } = require("piopiy");
 const piopiy = new Piopiy("your_app_id", "your_app_secret");
 const action = new PiopiyAction();
 
-const music_file = "Your example music file url"; // Example alert music file or file URL
+const music_file = "Your example music file or file URL"; // Example alert music file or file URL
 const customer_number = "Your customer number"; // Example customer phone number
 const caller_id = "Your caller id"; // Example caller id
 const alert_music_pcmo_function = action.PCMO(); // Use this PCMO function to play your alert music.
@@ -68,6 +68,7 @@ These are the list of parameters and its description
 
 | parameter       | Type   | Description                                                                      |
 | --------------- | ------ | -------------------------------------------------------------------------------- |
+| music_file      | string | The music file or file URL of the alert music file to be played.                 |
 | customer_number | number | The phone number of the customer receiving the call, including the country code. |
 | caller_id       | number | The caller id provided by the Piopiy TeleCMI platform.                           |
 | options         | object | An object containing optional parameters.                                        |
