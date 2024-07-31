@@ -1,25 +1,55 @@
 const { Piopiy, PiopiyAction } = require("piopiy");
-const piopiy = new Piopiy(2222347, "305b5635-a510-4d3a-9da5-debe67f56140");
+const express = require("express");
+const app = express();
+app.use(express.json());
+
+const piopiy = new Piopiy("your_app_id", "your_app_secret");
 const action = new PiopiyAction();
 
-const music_file = '1616411005409Alsalamawav396b9450-8afe-11eb-9e22-398ab0e302cd_piopiy.wav' // add your alert music file or file URL
-const local_url = 'http://ngrok.telecmi.io/music' // add your local ngrok URL
+const music_file = 'Your alert music file or file URL'; // Your alert music file or file URL
+const ngrok_url = 'http://ngrok.order.confirmation.io/dtmf'; // add your local ngrok URL
+const customer_number = "Customer number"; // Your customer phone number with country code.
+const caller_id = "Your caller id"; // Your call masking number provided by the Piopiy TeleCMI platform.
+const order_confimation_pcmo_function = action.PCMO(); // Use this PCMO function to confirm your order input.
 
-action.playGetInput(local_url, music_file, { max_digit: 2 })
+const options = {
+    duration: 10,       // (Optional) Maximum duration of the call in seconds
+    timeout: 20,        // (Optional) Time to wait for the call to be answered
+    loop: 1             // (Optional) Number of retry attempts if the call is not answered
+};
+
+const play_get_input_options = {
+    max_digit: 1,       // (Optional) Maximum number of digits expected from the user input
+    max_retry: 1        // (Optional) Maximum number of retry attempts
+};
+
+// Initiate the call
+action.playGetInput(ngrok_url, music_file, play_get_input_options);
+
+piopiy.voice.call(customer_number, caller_id, order_confimation_pcmo_function, options)
+    .then(res => {
+        console.log('Success response:', res);
+    }).catch(error => {
+        console.error('Error:', error);
+    });
 
 
-piopiy.voice.call(
-    919999999999,         // Agent phone number with country code
-    918000000000,         // Caller ID
-    action.PCMO(),        // Use this to play your alert audio
-    {
-        duration: 10,       // (Optional) Maximum duration of the call in seconds
-        timeout: 20,        // (Optional) Time to wait for the call to be answered
-        loop: 1,            // (Optional) Number of retry attempts if the call is not answered
-        record: true        // (Optional) Whether to record the call
+// Set up the webhook server
+
+app.post('/dtmf', (req, res) => {
+
+    const action = new PiopiyAction();
+    const dtmf = req.body.dtmf; // Assuming DTMF input is in the body of the request
+
+    if (dtmf == 1) {
+        action.playMusic("Your example music file or file URL");
+        res.send(action.PCMO());
+    } else {
+        action.playMusic("Your example music file or file URL");
+        res.send(action.PCMO());
     }
-).then(res => {
-    console.log('Call connected, answer URL:', res);
-}).catch(error => {
-    console.error('Error:', error);
+});
+
+app.listen(3001, () => {
+    console.log(`Server is running on port 3001`);
 });

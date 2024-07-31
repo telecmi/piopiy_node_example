@@ -1,6 +1,6 @@
 # Piopiy Voice Call Example ( Transaction Alert Call )
 
-This example shows how to make a transaction alert call using a caller ID with the Piopiy package. The process involves initiating a call to a customer using a caller ID. Once the customer answers, alert music is played to notify them of the transaction.
+This example shows how to make a transaction alert call using a caller ID with the Piopiy package.
 
 ## Steps to run the code
 
