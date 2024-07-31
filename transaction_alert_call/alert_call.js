@@ -1,22 +1,22 @@
 const { Piopiy, PiopiyAction } = require("piopiy");
-const piopiy = new Piopiy(2222347, "305b5635-a510-4d3a-9da5-debe67f56140");
+const piopiy = new Piopiy("your_app_id", "your_app_secret");
 const action = new PiopiyAction();
-const music_file = '1616411005409Alsalamawav396b9450-8afe-11eb-9e22-398ab0e302cd_piopiy.wav' // add your alert music file or file URL
+
+const music_file = 'https://blog-cms-telecmi.s3.ap-southeast-2.amazonaws.com/transaction_alert_call_music.mp3' // add your alert music file or file URL
+const customer_number = "Customer number"; // Your customer phone number with country code.
+const caller_id = "Your caller id" // Your call masking number provided by the Piopiy TeleCMI platform.
+const alert_music_pcmo_function = action.PCMO() // Use this PCMO function to play your alert music.
+const options = {
+    duration: 10,       // (Optional) Maximum duration of the call in seconds
+    timeout: 20,        // (Optional) Time to wait for the call to be answered
+    loop: 1            // (Optional) Number of retry attempts if the call is not answered
+};
 
 action.playMusic(music_file);
 
-
-piopiy.voice.call(
-    919999999999,         // Agent phone number with country code
-    918000000000,         // Caller ID
-    action.PCMO(),        // Use this to play your alert audio
-    {
-        duration: 10,       // (Optional) Maximum duration of the call in seconds
-        timeout: 20,        // (Optional) Time to wait for the call to be answered
-        loop: 1            // (Optional) Number of retry attempts if the call is not answered
-    }
-).then(res => {
-    console.log('Call connected, answer URL:', res);
-}).catch(error => {
-    console.error('Error:', error);
-});
+piopiy.voice.call(customer_number, caller_id, alert_music_pcmo_function, options)
+    .then(res => {
+        console.log('Success response:', res);
+    }).catch(error => {
+        console.error('Error:', error);
+    });

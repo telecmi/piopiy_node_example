@@ -8,7 +8,7 @@ app.post('/inbound', (req, res) => {
 
     const action = new PiopiyAction();
 
-    const delivery_agent_number = "Delivery agent phone number"; // Your agent phone number with country code.
+    const delivery_agent_number = "Delivery agent phone number"; // Your delivery agent phone number with country code.
     const call_masking_number = "Call masking number"; // Your call masking number provided by the Piopiy TeleCMI platform.
     const options = {
         duration: 10,       // (Optional) Maximum duration of the call in seconds
