@@ -1,4 +1,4 @@
-# Piopiy Voice Call Example ( Delivery Agent to Customer )
+# Piopiy Voice Call Example ( Outbound Dialer )
 
 This example shows how to make an outbound dialer call using the Piopiy package.
 
