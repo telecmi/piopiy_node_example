@@ -12,10 +12,10 @@ Before you start, ensure you have completed the [ prerequisite steps ](/README.m
 
 Replace the value in the [ Outbound Dialer ](/outbound_dialer/dialer_call.js) code with your actual values for
 
-- [**app_id** & **app_secret**]()
-- [**customer_number**]()
-- [**caller_id**]()
-- [**multiple_agent_number**]()
+- [**app_id** & **app_secret**](https://github.com/telecmi/piopiy_node_example/blob/development/outbound_dialer/dialer_call.js#L2)
+- [**customer_number**](https://github.com/telecmi/piopiy_node_example/blob/development/outbound_dialer/dialer_call.js#L4)
+- [**caller_id**](https://github.com/telecmi/piopiy_node_example/blob/development/outbound_dialer/dialer_call.js#L5)
+- [**multiple_agent_number**](https://github.com/telecmi/piopiy_node_example/blob/development/outbound_dialer/dialer_call.js#L6)
 
 ### 3.Run the code
 
@@ -33,7 +33,7 @@ When the code is executed, the call will follow these steps:
 
 **2.Customer Answers Call:** Once the customer answers the call, the call is routed to one of the agent numbers.
 
-You can handle these steps programmatically using the Piopiy package. Ensure that your [app_id & app_secret](), [customer_number](), [caller_id](), and [multiple_agent_number]() provided are valid.
+You can handle these steps programmatically using the Piopiy package. Ensure that your [**app_id** & **app_secret**](https://github.com/telecmi/piopiy_node_example/blob/development/outbound_dialer/dialer_call.js#L2), [**customer_number**](https://github.com/telecmi/piopiy_node_example/blob/development/outbound_dialer/dialer_call.js#L4), [**caller_id**](https://github.com/telecmi/piopiy_node_example/blob/development/outbound_dialer/dialer_call.js#L5), and [**multiple_agent_number**](https://github.com/telecmi/piopiy_node_example/blob/development/outbound_dialer/dialer_call.js#L6) provided are valid.
 
 ## Example usage
 
@@ -53,8 +53,7 @@ const options = {
   ring_type: "group", // (Optional) Type of ringing for the call.
 };
 
-piopiy.voice
-  .call(customer_number, caller_id, multiple_agent_number, options)
+piopiy.voice.call(customer_number, caller_id, multiple_agent_number, options)
   .then((res) => {
     console.log("Success res:", res);
   })
