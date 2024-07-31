@@ -76,7 +76,7 @@ const action = new PiopiyAction();
 const music_file = "https://example.com/your_alert_music.mp3"; // Your alert music file or file URL
 const ngrok_url = "https://abcd1234.ngrok.io/dtmf"; // Replace with your actual Ngrok URL
 const customer_number = "Customer number"; // Your customer phone number with country code
-const caller_id = "Your caller id"; // Your call masking number provided by the Piopiy TeleCMI platform
+const caller_id = "Your caller id"; // Your caller id provided by the Piopiy TeleCMI platform
 const options = {
   duration: 10, // (Optional) Maximum duration of the call in seconds
   timeout: 20, // (Optional) Time to wait for the call to be answered

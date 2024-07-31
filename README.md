@@ -47,4 +47,4 @@ This example provides detailed information on how to use the Piopiy package to m
 
 #### [Order confirmation call](/order_confirmation_call/README.md)
 
-#### [Outbound dialer](/outbound_dialer/dialer.js)
+#### [Outbound dialer](/outbound_dialer/README.md)

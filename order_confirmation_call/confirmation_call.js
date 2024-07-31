@@ -11,13 +11,11 @@ const ngrok_url = 'http://ngrok.order.confirmation.io/dtmf'; // add your local n
 const customer_number = "Customer number"; // Your customer phone number with country code.
 const caller_id = "Your caller id"; // Your call masking number provided by the Piopiy TeleCMI platform.
 const order_confimation_pcmo_function = action.PCMO(); // Use this PCMO function to confirm your order input.
-
 const options = {
     duration: 10,       // (Optional) Maximum duration of the call in seconds
     timeout: 20,        // (Optional) Time to wait for the call to be answered
     loop: 1             // (Optional) Number of retry attempts if the call is not answered
 };
-
 const play_get_input_options = {
     max_digit: 1,       // (Optional) Maximum number of digits expected from the user input
     max_retry: 1        // (Optional) Maximum number of retry attempts
@@ -32,7 +30,6 @@ piopiy.voice.call(customer_number, caller_id, order_confimation_pcmo_function, o
     }).catch(error => {
         console.error('Error:', error);
     });
-
 
 // Set up the webhook server
 
