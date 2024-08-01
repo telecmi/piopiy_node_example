@@ -1,6 +1,6 @@
 # Piopiy Voice Call Example ( Outbound Dialer )
 
-This example shows how to make an outbound dialer call using the Piopiy package.
+This example shows how to make an outbound dialer using the Piopiy package.
 
 ## Steps to run the code
 
@@ -14,7 +14,7 @@ Replace the value in the [ Outbound Dialer ](/outbound_dialer/dialer_call.js) co
 
 - [**app_id** & **app_secret**](https://github.com/telecmi/piopiy_node_example/blob/development/outbound_dialer/dialer_call.js#L2)
 - [**customer_number**](https://github.com/telecmi/piopiy_node_example/blob/development/outbound_dialer/dialer_call.js#L4)
-- [**caller_id**](https://github.com/telecmi/piopiy_node_example/blob/development/outbound_dialer/dialer_call.js#L5)
+- [**piopiy_number**](https://github.com/telecmi/piopiy_node_example/blob/development/outbound_dialer/dialer_call.js#L5)
 - [**multiple_agent_number**](https://github.com/telecmi/piopiy_node_example/blob/development/outbound_dialer/dialer_call.js#L6)
 
 ### 3.Run the code
@@ -33,7 +33,7 @@ When the code is executed, the call will follow these steps:
 
 **2.Customer Answers Call:** Once the customer answers the call, the call is routed to one of the agent numbers.
 
-You can handle these steps programmatically using the Piopiy package. Ensure that your [**app_id** & **app_secret**](https://github.com/telecmi/piopiy_node_example/blob/development/outbound_dialer/dialer_call.js#L2), [**customer_number**](https://github.com/telecmi/piopiy_node_example/blob/development/outbound_dialer/dialer_call.js#L4), [**caller_id**](https://github.com/telecmi/piopiy_node_example/blob/development/outbound_dialer/dialer_call.js#L5), and [**multiple_agent_number**](https://github.com/telecmi/piopiy_node_example/blob/development/outbound_dialer/dialer_call.js#L6) provided are valid.
+You can handle these steps programmatically using the Piopiy package. Ensure that your [**app_id** & **app_secret**](https://github.com/telecmi/piopiy_node_example/blob/development/outbound_dialer/dialer_call.js#L2), [**customer_number**](https://github.com/telecmi/piopiy_node_example/blob/development/outbound_dialer/dialer_call.js#L4), [**piopiy_number**](https://github.com/telecmi/piopiy_node_example/blob/development/outbound_dialer/dialer_call.js#L5), and [**multiple_agent_number**](https://github.com/telecmi/piopiy_node_example/blob/development/outbound_dialer/dialer_call.js#L6) provided are valid.
 
 ## Example usage
 
@@ -43,8 +43,8 @@ Replace the placeholders in the code with your actual values:
 const { Piopiy } = require("piopiy");
 const piopiy = new Piopiy("your_app_id", "your_app_secret");
 
-const customer_number = "Customer number"; // Your customer phone number with country code.
-const caller_id = "Your caller id"; // Your caller id provided by the Piopiy TeleCMI platform.
+const customer_number = "Your customer number"; // Your customer phone number with country code.
+const piopiy_number = "Your piopiy number"; // Your piopiy number provided by the Piopiy TeleCMI platform.
 const multiple_agent_number = ["Your agent's phone number"]; // Multiple agent's phone number with country code.
 const options = {
   duration: 10, // (Optional) Maximum duration of the call in seconds.
@@ -53,7 +53,7 @@ const options = {
   ring_type: "group", // (Optional) Type of ringing for the call.
 };
 
-piopiy.voice.call(customer_number, caller_id, multiple_agent_number, options)
+piopiy.voice.call(customer_number, piopiy_number, multiple_agent_number, options)
   .then((res) => {
     console.log("Success res:", res);
   })
@@ -66,16 +66,25 @@ piopiy.voice.call(customer_number, caller_id, multiple_agent_number, options)
 
 These are the list of parameters and its description
 
-| parameter             | Type   | Description                                                                |
-| --------------------- | ------ | -------------------------------------------------------------------------- |
-| customer_number       | number | The phone number of the customer being called, including the country code. |
-| caller_id             | number | The caller provided by the Piopiy TeleCMI platform.                        |
-| multiple_agent_number | array  | An array of phone numbers for multiple agents, including country codes.    |
-| options               | object | An object containing optional parameters.                                  |
-| duration              | number | The maximum duration of the call in seconds,By default 5400 seconds.       |
-| timeout               | number | Time to wait for the call to be answered in seconds,By default 40 seconds. |
-| loop                  | number | The number of retry attempts if the call is not answered,By default 1.     |
-| ring_type             | string | The type of ringing for the call.By default, the ring type is single.      |
+#### Main Parameters
+
+| parameter             | Type   | Description                                                                     |
+| --------------------- | ------ | ------------------------------------------------------------------------------- |
+| app_id                | number | Your app Id provided by Piopiy TeleCMI platform.                                |
+| app_secret            | string | Your app secret provided by Piopiy TeleCMI platform.                            |
+| customer_number       | number | The phone number of the customer being called, including the country code.      |
+| piopiy_number         | number | The piopiy number provided by the Piopiy TeleCMI platform.                      |
+| multiple_agent_number | array  | An array of phone numbers for multiple agents, including country codes.         |
+| options               | object | An object containing optional parameters (duration, timeout, loop & ring_type). |
+
+#### Options Parameters
+
+| parameter | Type   | Description                                                                |
+| --------- | ------ | -------------------------------------------------------------------------- |
+| duration  | number | The maximum duration of the call in seconds,By default 5400 seconds.       |
+| timeout   | number | Time to wait for the call to be answered in seconds,By default 40 seconds. |
+| loop      | number | The number of retry attempts if the call is not answered,By default 1.     |
+| ring_type | string | The type of ringing for the call.By default, the ring type is single.      |
 
 ## Sample response
 

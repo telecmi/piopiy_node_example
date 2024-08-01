@@ -16,7 +16,7 @@ Replace the value in the [ order confirmation call ](/order_confirmation_call/co
 - [**ngrok URL**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L10)
 - [**music_file**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L9)
 - [**customer_number**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L11)
-- [**caller_id**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L12)
+- [**piopiy_number**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L12)
 
 ### 3. Create a public URL using ngrok
 
@@ -26,14 +26,14 @@ To expose your local server to the internet, use ngrok to create a public URL:
 ngrok http 3001
 ```
 
-Copy the URL provided by ngrok. This URL will look something like **https://abcd1234.ngrok.io**.
+Copy the URL provided by ngrok. This URL will look something like **https://ngrok.order.confirmation.io**.
 
 ### 4.Configure piopiy to use the ngrok URL
 
 In your code where you configure the [ngrok URL](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L10), replace it with the copied Ngrok URL, appending the **/dtmf** path. For example:
 
 ```sh
-const ngrok_url = 'https://abcd1234.ngrok.io/dtmf'; // Replace with your actual Ngrok URL
+const ngrok_url = 'https://ngrok.order.confirmation.io/dtmf'; // Replace with your actual Ngrok URL
 ```
 
 This URL is used to send requests to your local server, specifically to the **/dtmf** endpoint that handles DTMF inputs.
@@ -51,14 +51,17 @@ node order_confirmation_call/confirmation_call.js
 When the code is executed, the call will follow these steps:
 
 **1.Initial Call to Customer:** The call is initiated to the customer's number first.
-**2.Customer Answers Call:** Once the customer answers the call, alert music is played to notify them of the transaction.
-**3.DTMF Handling:** The customer presses 1 to confirm the order or does nothing.
+
+**2.Customer Answers Call:** Once the customer answers the call, a prompt for order confimation music plays.
+
+**3.DTMF Handling:** TThe customer presses 1 to confirm the order or presses any other input to cancel the order.
+
 **4.Response Handling:**
 
-- If the customer presses 1, a confirmation music file plays.
-- If the customer does not press 1 or presses another button, a different music file plays indicating the order was not confirmed.
+- If the customer presses 1, a confirmation music file plays, indicating the order was confirmed.
+- If the customer does not press 1 or presses another input, an order cancellation music file plays, indicating the order was canceled.
 
-You can handle these steps programmatically using the Piopiy package. Ensure that your [**app_id** & **app_secret**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L6) are correctly configured, and the [**music_file**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L9), [**customer_number**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L11), [**caller_id**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L12) and [**ngrok URL**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L10) provided are valid.
+You can handle these steps programmatically using the Piopiy package. Ensure that your [**app_id** & **app_secret**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L6) are correctly configured, and the [**music_file**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L9), [**customer_number**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L11), [**piopiy_number**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L12) and [**ngrok URL**](https://github.com/telecmi/piopiy_node_example/blob/development/order_confirmation_call/confirmation_call.js#L10) provided are valid.
 
 ## Example usage
 
@@ -73,26 +76,22 @@ app.use(express.json());
 const piopiy = new Piopiy("your_app_id", "your_app_secret");
 const action = new PiopiyAction();
 
-const music_file = "https://example.com/your_alert_music.mp3"; // Your alert music file or file URL
-const ngrok_url = "https://abcd1234.ngrok.io/dtmf"; // Replace with your actual Ngrok URL
-const customer_number = "Customer number"; // Your customer phone number with country code
-const caller_id = "Your caller id"; // Your caller id provided by the Piopiy TeleCMI platform
+const music_file = "https://example.com/your_order_confirmation_music.mp3"; // Your order confimation music file or music file URL
+const ngrok_url = "https://ngrok.order.confirmation.io/dtmf"; // Replace with your actual Ngrok URL
+const customer_number = "Your customer number"; // Your customer phone number with country code
+const piopiy_number = "Your piopiy number"; // Your piopiy number provided by the Piopiy TeleCMI platform
 const options = {
-  duration: 10, // (Optional) Maximum duration of the call in seconds
-  timeout: 20, // (Optional) Time to wait for the call to be answered
-  loop: 1, // (Optional) Number of retry attempts if the call is not answered
-};
-const play_get_input_options = {
   max_digit: 1, // (Optional) Maximum number of digits expected from the user input
   max_retry: 1, // (Optional) Maximum number of retry attempts
+  timeout: 1, // (Optional) Time allowed between DTMF inputs in seconds
 };
 
 // Initiate the call
-action.playGetInput(ngrok_url, music_file, play_get_input_options);
+action.playGetInput(ngrok_url, music_file, options);
 
-piopiy.voice.call(customer_number, caller_id, action.PCMO(), options)
+piopiy.voice.call(customer_number, piopiy_number, action.PCMO())
   .then((res) => {
-    console.log("Call connected, answer URL:", res);
+    console.log("Success response:", res);
   })
   .catch((error) => {
     console.error("Error:", error);
@@ -107,7 +106,7 @@ app.post("/dtmf", (req, res) => {
     // Music to play if customer confirms the order
     action.playMusic("https://example.com/your_confirmation_music.mp3");
   } else {
-    // Music to play if customer does not confirm the order
+    // Music to play if customer cancel the order
     action.playMusic("https://example.com/your_order_not_confirmed_music.mp3");
   }
   res.send(action.PCMO());
@@ -122,15 +121,24 @@ app.listen(3001, () => {
 
 These are the list of parameters and its description
 
-| parameter       | Type   | Description                                                                      |
-| --------------- | ------ | -------------------------------------------------------------------------------- |
-| music_file      | string | The music file or file URL of the alert music file to be played.                 |
-| customer_number | number | The phone number of the customer receiving the call, including the country code. |
-| caller_id       | number | The caller id provided by the Piopiy TeleCMI platform.                           |
-| options         | object | An object containing optional parameters.                                        |
-| duration        | number | The maximum duration of the call in seconds,By default 5400 seconds.             |
-| timeout         | number | Time to wait for the call to be answered in seconds,By default 40 seconds.       |
-| loop            | number | The number of retry attempts if the call is not answered,By default 1.           |
+#### Main parameters
+
+| parameter       | Type   | Description                                                                        |
+| --------------- | ------ | ---------------------------------------------------------------------------------- |
+| app_id          | number | Your app Id provided by Piopiy TeleCMI platform.                                   |
+| app_secret      | string | Your app secret provided by Piopiy TeleCMI platform.                               |
+| music_file      | string | The music file or music file URL of the order confimation music file to be played. |
+| customer_number | number | The phone number of the customer receiving the call, including the country code.   |
+| piopiy_number   | number | The piopiy number provided by the Piopiy TeleCMI platform.                         |
+| options         | object | An object containing optional parameters (max_digit, max_retry & timeout).         |
+
+#### Options parameters
+
+| parameter | Type   | Description                                                             |
+| --------- | ------ | ----------------------------------------------------------------------- |
+| max_digit | number | Maximum number of digits expected from the user input.                  |
+| max_retry | number | Maximum number of retry attempts.                                       |
+| timeout   | number | Time allowed between DTMF inputs in seconds.By default, it is 1 second. |
 
 ## Sample response
 

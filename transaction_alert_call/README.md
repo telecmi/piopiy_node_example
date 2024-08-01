@@ -66,6 +66,8 @@ These are the list of parameters and its description
 
 | parameter       | Type   | Description                                                                      |
 | --------------- | ------ | -------------------------------------------------------------------------------- |
+| app_id          | number | Your app Id provided by Piopiy TeleCMI platform.                                 |
+| app_secret      | string | Your app secret provided by Piopiy TeleCMI platform.                             |
 | music_file      | string | The music file or music file URL of the alert music file to be played.           |
 | customer_number | number | The phone number of the customer receiving the call, including the country code. |
 | piopiy_number   | number | The piopiy number provided by the Piopiy TeleCMI platform.                       |

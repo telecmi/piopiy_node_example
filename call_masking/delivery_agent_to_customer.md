@@ -61,15 +61,24 @@ piopiy.voice.call(delivery_agent_number, call_masking_number, customer_number, o
 
 These are the list of parameters and its description
 
+#### Main parameters
+
 | parameter             | Type   | Description                                                                   |
 | --------------------- | ------ | ----------------------------------------------------------------------------- |
+| app_id                | number | Your app Id provided by Piopiy TeleCMI platform.                              |
+| app_secret            | string | Your app secret provided by Piopiy TeleCMI platform.                          |
 | delivery_agent_number | number | The phone number of the agent receiving the call, including the country code. |
 | call_masking_number   | number | The call masking number provided by the Piopiy TeleCMI platform.              |
 | customer_number       | number | The phone number of the customer being called, including the country code.    |
-| options               | object | An object containing optional parameters.                                     |
-| duration              | number | The maximum duration of the call in seconds,By default 5400 seconds.          |
-| timeout               | number | Time to wait for the call to be answered in seconds,By default 40 seconds.    |
-| loop                  | number | The number of retry attempts if the call is not answered,By default 1.        |
+| options               | object | An object containing optional parameters (duration, timeout & loop).          |
+
+#### Options parameters
+
+| parameter | Type   | Description                                                                |
+| --------- | ------ | -------------------------------------------------------------------------- |
+| duration  | number | The maximum duration of the call in seconds,By default 5400 seconds.       |
+| timeout   | number | Time to wait for the call to be answered in seconds,By default 40 seconds. |
+| loop      | number | The number of retry attempts if the call is not answered,By default 1.     |
 
 ## Sample response
 
