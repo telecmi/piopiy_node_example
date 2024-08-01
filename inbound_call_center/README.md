@@ -12,8 +12,9 @@ Before you start, ensure you have completed the [ prerequisite steps ](/README.m
 
 Replace the value in the [ Inbound call center ](/inbound_call_center/inbound_call.js) code with your actual values for
 
-- [**multiple_agent_number**]()
-- [**piopiy_number**]()
+- [**multiple_agent_number**](https://github.com/telecmi/piopiy_node_example/blob/development/inbound_call_center/inbound_call.js#L11)
+
+- [**piopiy_number**](https://github.com/telecmi/piopiy_node_example/blob/development/inbound_call_center/inbound_call.js#L12)
 
 ### 3.Create and run the Express.js server
 
@@ -97,3 +98,5 @@ When the code is executed, the call will follow these steps:
 **1.Customer Calls Piopiy Number:** The customer initiates the call to the Piopiy number.
 
 **2.Call is Routed to Agents:** The call is routed to the agents' numbers provided in the multiple_agent_number array.
+
+You can handle these steps programmatically using the Piopiy package. Ensure that your [multiple_agent_number](https://github.com/telecmi/piopiy_node_example/blob/development/inbound_call_center/inbound_call.js#L11) and [piopiy_number](https://github.com/telecmi/piopiy_node_example/blob/development/inbound_call_center/inbound_call.js#L12) are correctly configured.
