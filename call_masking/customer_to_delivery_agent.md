@@ -28,8 +28,8 @@ app.use(express.json());
 app.post("/inbound", (req, res) => {
   const action = new PiopiyAction();
 
-  const delivery_agent_number = " your delivery agent number "; // Example delivery agent phone number
-  const call_masking_number = "your call masking number"; // Example call masking number
+  const delivery_agent_number = "Your delivery agent number"; // Example delivery agent phone number
+  const call_masking_number = "Your call masking number"; // Example call masking number
   const options = { duration: 15, timeout: 25, loop: 2 };
 
   action.call(delivery_agent_number, call_masking_number, options);
@@ -75,14 +75,14 @@ To expose your local server to the internet, use ngrok to create a public URL:
 ngrok http 3001
 ```
 
-Copy the URL provided by ngrok. This URL will look something like **https://abcd1234.ngrok.io**.
+Copy the URL provided by ngrok. This URL will look something like **https://customer.to.delivey.agent.ngrok.io**.
 
 ### 5.Configure Piopiy dashboard
 
 Log in to your <a href="https://developer.telecmi.com" target="_blank">Piopiy dashboard</a> and paste the ngrok URL into the "Answer URL" input field. Ensure that the endpoint is set correctly to handle inbound calls.
 
 ```sh
-https://abcd1234.ngrok.io/inbound
+https://customer.to.delivey.agent.ngrok.io/inbound
 ```
 
 ### 6.Expected Call Flow

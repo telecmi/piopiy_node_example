@@ -43,9 +43,9 @@ Replace the placeholders in the code with your actual values:
 const { Piopiy } = require("piopiy");
 const piopiy = new Piopiy("your_app_id", "your_app_secret");
 
-const delivery_agent_number = " your delivery agent number "; // Example delivery agent phone number
-const call_masking_number = "your call masking number"; // Example call masking number
-const customer_number = "your customer number"; // Example customer phone number
+const delivery_agent_number = "Your delivery agent number"; // Example delivery agent phone number
+const call_masking_number = "Your call masking number"; // Example call masking number
+const customer_number = "Your customer number"; // Example customer phone number
 const options = { duration: 15, timeout: 25, loop: 2 };
 
 piopiy.voice.call(delivery_agent_number, call_masking_number, customer_number, options)

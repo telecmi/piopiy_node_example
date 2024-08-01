@@ -1,9 +1,9 @@
 const { Piopiy } = require("piopiy");
 const piopiy = new Piopiy("your_app_id", "your_app_secret");
 
-const delivery_agent_number = "Delivery agent phone number"; // Your delivery agent phone number with country code.
-const call_masking_number = "Call masking number"; // Your call masking number provided by the Piopiy TeleCMI platform.
-const customer_number = "Customer number"; // Your customer phone number with country code.
+const delivery_agent_number = "Your delivery agent phone number"; // Your delivery agent phone number with country code.
+const call_masking_number = "Your call masking number"; // Your call masking number provided by the Piopiy TeleCMI platform.
+const customer_number = "Your customer number"; // Your customer phone number with country code.
 const options = {
     duration: 10,       // (Optional) Maximum duration of the call in seconds, Number type
     timeout: 20,        // (Optional) Time to wait for the call to be answered, Number type
