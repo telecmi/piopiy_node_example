@@ -84,7 +84,7 @@ These are the list of parameters and its description
 | duration  | number | The maximum duration of the call in seconds,By default 5400 seconds.       |
 | timeout   | number | Time to wait for the call to be answered in seconds,By default 40 seconds. |
 | loop      | number | The number of retry attempts if the call is not answered,By default 1.     |
-| ring_type | string | The type of ringing for the call.By default, the ring type is single.      |
+| ring_type | string | The type of ringing for the call. By default, it is `single`, where agents receive calls one by one. If set to `group`, all agents will receive calls simultaneously.                          |
 
 ## Sample response
 
