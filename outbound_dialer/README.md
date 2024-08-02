@@ -45,7 +45,7 @@ const piopiy = new Piopiy("your_app_id", "your_app_secret");
 
 const customer_number = "Your customer number"; // Your customer phone number with country code.
 const piopiy_number = "Your piopiy number"; // Your piopiy number provided by the Piopiy TeleCMI platform.
-const multiple_agent_number = ["Your agent's phone number"]; // Multiple agent's phone number with country code.
+const multiple_agent_number = ["Your agent phone number", "Your agent phone number"]; // Multiple agent's phone number with country code.
 const options = {
   duration: 10, // (Optional) Maximum duration of the call in seconds.
   timeout: 20, // (Optional) Time to wait for the call to be answered.
@@ -84,7 +84,7 @@ These are the list of parameters and its description
 | duration  | number | The maximum duration of the call in seconds,By default 5400 seconds.       |
 | timeout   | number | Time to wait for the call to be answered in seconds,By default 40 seconds. |
 | loop      | number | The number of retry attempts if the call is not answered,By default 1.     |
-| ring_type | string | The type of ringing for the call. By default, it is `single`, where agents receive calls one by one. If set to `group`, all agents will receive calls simultaneously.                          |
+| ring_type | string | The type of ringing for the call. By default, it is **single**, where agents receive calls one by one. If set to **group**, all agents will receive calls simultaneously.                          |
 
 ## Sample response
 
