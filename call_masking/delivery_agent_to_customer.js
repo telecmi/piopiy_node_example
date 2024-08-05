@@ -13,7 +13,7 @@ const options = {
 
 piopiy.voice.call(delivery_agent_number, call_masking_number, customer_number, options)
     .then((res) => {
-        console.log("Call connected, answer URL:", res);
+        console.log("Success response:", res);
     })
     .catch((error) => {
         console.error("Error:", error);

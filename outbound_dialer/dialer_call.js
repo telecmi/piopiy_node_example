@@ -12,7 +12,7 @@ const options = {
 };
 
 piopiy.voice.call(customer_number, piopiy_number, multiple_agent_number, options).then(res => {
-    console.log('Success res:', res);
+    console.log('Success response:', res);
 }).catch(error => {
     console.error('Error:', error);
 });
