@@ -70,7 +70,7 @@ Copy the ngrok TCP URL, which will look something like **tcp://0.tcp.ngrok.io**
 
 ### 6. Configure the WebSocket URL
 
-Use the WebSocket TCP [ngrok URL]() for streaming. Set this URL in your Piopiy configuration for handling the voice data:
+Use the WebSocket TCP [ngrok URL](https://github.com/telecmi/piopiy_node_example/blob/development/ai_streaming/outbound_call_streaming.js#L5) for streaming. Set this URL in your Piopiy configuration for handling the voice data:
 
 ```sh
 ws://0.tcp.ngrok.io:xxxxx
