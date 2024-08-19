@@ -2,14 +2,18 @@ const { Piopiy, PiopiyAction } = require("piopiy");
 const piopiy = new Piopiy("your_app_id", "your_app_secret");
 const action = new PiopiyAction();
 
-const music_file = 'Your alert music file or music file URL' // Your alert music file or music file URL
+const ws_url = "ws://example.tcp.ngrok.url"   // Your websocket tcp ngrok URL
+const options = {
+
+    listen_mode: "caller" // Determines which part of the call audio is captured and stored
+};
 const customer_number = "Customer number"; // Your customer phone number with country code.
 const piopiy_number = "Your piopiy number" // Your piopiy number provided by the Piopiy TeleCMI platform.
-const alert_music_pcmo_function = action.PCMO() // Use this PCMO function to play your alert music.
+const outbound_streaming_pcmo_function = action.PCMO(); // Use this PCMO function to start outbound call streaming.
 
-action.playMusic(music_file);
+action.stream(ws_url, options);
 
-piopiy.voice.call(customer_number, piopiy_number, alert_music_pcmo_function)
+piopiy.voice.call(customer_number, piopiy_number, outbound_streaming_pcmo_function)
     .then(res => {
         console.log('Success response:', res);
     }).catch(error => {

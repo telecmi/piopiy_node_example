@@ -51,7 +51,7 @@ const alert_music_pcmo_function = action.PCMO(); // Use this PCMO function to pl
 
 action.playMusic(music_file);
 
-piopiy.voice.call(customer_number, piopiy_number, alert_music_pcmo_function, options)
+piopiy.voice.call(customer_number, piopiy_number, alert_music_pcmo_function)
   .then((res) => {
     console.log("Success response:", res);
   })
