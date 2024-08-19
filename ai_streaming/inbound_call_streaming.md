@@ -12,7 +12,7 @@ Before you start, ensure you have completed the [prerequisite steps](/README.md)
 
 Replace the values in the [Inbound call stream](/ai_streaming//inbound_call_streaming.js) code with your ngrok URL:
 
-- [**ws_url**]()
+- [**ws_url**](https://github.com/telecmi/piopiy_node_example/blob/development/ai_streaming/inbound_call_streaming.js#L11)
 
 ### 3. Create and run the Express.js server
 

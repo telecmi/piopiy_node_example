@@ -12,13 +12,13 @@ Before you start, ensure you have completed the [prerequisite steps](/README.md)
 
 Replace the values in the code with your actual data:
 
-- [**app_id** & **app_secret**]()
+- [**app_id** & **app_secret**](https://github.com/telecmi/piopiy_node_example/blob/development/ai_streaming/outbound_call_streaming.js#L2)
 
-- [**ws_url**]()
+- [**ws_url**](https://github.com/telecmi/piopiy_node_example/blob/development/ai_streaming/outbound_call_streaming.js#L5)
 
-- [**customer_number**]()
+- [**customer_number**](https://github.com/telecmi/piopiy_node_example/blob/development/ai_streaming/outbound_call_streaming.js#L10)
 
-- [**piopiy_number**]()
+- [**piopiy_number**](https://github.com/telecmi/piopiy_node_example/blob/development/ai_streaming/outbound_call_streaming.js#L11)
 
 ### Example usage
 
