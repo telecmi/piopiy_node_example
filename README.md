@@ -52,3 +52,9 @@ This example provides detailed information on how to use the Piopiy package to m
 #### [Outbound dialer](/outbound_dialer/README.md)
 
 #### [Inbound call center](/inbound_call_center/README.md)
+
+#### [AI Streaming](/ai_streaming)
+
+- [Inbound Call Streaming](/ai_streaming/inbound_call_streaming.md)
+
+- [Outbound Call Streaming](/ai_streaming/outbound_call_streaming.md)
