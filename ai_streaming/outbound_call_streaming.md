@@ -20,7 +20,7 @@ Replace the values in the code with your actual data:
 
 - [**piopiy_number**](https://github.com/telecmi/piopiy_node_example/blob/development/ai_streaming/outbound_call_streaming.js#L11)
 
-### Example usage
+### 3. Example usage
 
 Replace the placeholders in the code with your actual values:
 
@@ -50,43 +50,7 @@ piopiy.voice.call(customer_number, piopiy_number, outbound_streaming_pcmo_functi
   });
 ```
 
-### 4. Run the server
-
-Run the code with Node.js:
-
-```sh
-node ai_streaming/outbound_call_streaming.js
-```
-
-### 5. Create a Public WebSocket URL Using ngrok
-
-To expose your local server to the internet, use ngrok to create public URL:
-
-```sh
-ngrok tcp 8080
-```
-
-Copy the ngrok TCP URL, which will look something like **tcp://0.tcp.ngrok.io**
-
-### 6. Configure the WebSocket URL
-
-Use the WebSocket TCP [ngrok URL](https://github.com/telecmi/piopiy_node_example/blob/development/ai_streaming/outbound_call_streaming.js#L5) for streaming. Set this URL in your Piopiy configuration for handling the voice data:
-
-```sh
-ws://0.tcp.ngrok.io:xxxxx
-```
-
-### 8. Expected Call Flow
-
-When the code is executed, the call will follow these steps:
-
-1. **Customer Receives Call:** The customer receives an outbound call from the Piopiy number.
-
-2. **Call is Answered:** The customer answers the call.
-
-3. **Voice Data is Streamed to WebSocket Server:** The voice call data from the caller (customer) is streamed to the WebSocket TCP ngrok URL.
-
-### 8. Parameters type and description
+### 4. Parameters type and description
 
 These are the list of parameters and its description
 
@@ -106,3 +70,72 @@ These are the list of parameters and its description
 | parameter   | Type   | Description                                                          |
 | ----------- | ------ | -------------------------------------------------------------------- |
 | listen_mode | string | Determines which part of the call audio is captured and stored <ul><li> **Caller:** The voice of the person who initiated the call will be recorded and stored.</li><li> **Calle:** The voice of the person receiving the call will be recorded and stored.</li><li> **Both:** the voices from both the caller and the callee will be recorded and stored.</li></ul> |
+
+
+### 5. Run the server
+
+Run the code with Node.js:
+
+```sh
+node ai_streaming/outbound_call_streaming.js
+```
+
+### 6. Create a Public WebSocket URL Using ngrok
+
+To expose your local server to the internet, use ngrok to create public URL:
+
+```sh
+ngrok tcp 8080
+```
+
+Copy the ngrok TCP URL, which will look something like **tcp://0.tcp.ngrok.io**
+
+### 7. Configure the WebSocket URL
+
+Use the WebSocket TCP [ngrok URL](https://github.com/telecmi/piopiy_node_example/blob/development/ai_streaming/outbound_call_streaming.js#L5) for streaming. Set this URL in your Piopiy configuration for handling the voice data:
+
+```sh
+ws://0.tcp.ngrok.io:xxxxx
+```
+
+### 8. Expected Call Flow
+
+When the code is executed, the call will follow these steps:
+
+1. **Customer Receives Call:** The customer receives an outbound call from the Piopiy number.
+
+2. **Call is Answered:** The customer answers the call.
+
+3. **Voice Data is Streamed to WebSocket Server:** The voice call data from the caller (customer) is streamed to the WebSocket TCP ngrok URL.
+
+
+### 9. Sample response
+
+Below is the following sample call response.
+
+```javascript
+
+{
+  "data": { "status": 'progress' },
+  "status": 'progress',
+  "request_id": 'X0uoi5LT5vCMOG6CZGEdMMYD5RL9raaEFa1p1IQ9EVm',
+  "cmi_code": 200
+}
+
+```
+
+## Properties
+
+These are the list of properties and its description
+
+| Property   | Type   | Description                  |
+| ---------- | ------ | ---------------------------- |
+| status     | string | The Status of the call.      |
+| request_id | string | The Unique ID for this call. |
+
+## HTTP status codes
+
+| cmi_code | cmi_code type | Description              |
+| -------- | ------------- | ------------------------ |
+| 200      | Success       | We received the request. |
+| 401      | Error         | Authentication failed.   |
