@@ -108,6 +108,8 @@ When the code is executed, the call will follow these steps:
 
 3. **Voice Data is Streamed to WebSocket Server:** The voice call data from the caller (customer) is streamed to the WebSocket TCP ngrok URL.
 
+Ensure that your [**app_id & app_secret**](https://github.com/telecmi/piopiy_node_example/blob/development/ai_streaming/outbound_call_streaming.js#L2), [**customer_number**](https://github.com/telecmi/piopiy_node_example/blob/development/ai_streaming/outbound_call_streaming.js#L10), [**piopiy_number**](https://github.com/telecmi/piopiy_node_example/blob/development/ai_streaming/outbound_call_streaming.js#L11), and [**ws_url**](https://github.com/telecmi/piopiy_node_example/blob/development/ai_streaming/outbound_call_streaming.js#L5) are correctly configured.
+
 
 ### 9. Sample response
 

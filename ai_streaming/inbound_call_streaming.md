@@ -99,7 +99,7 @@ When the code is executed, the call will follow these steps:
 
 3. **Voice Data is Streamed to WebSocket Server:** The voice call data from both the caller (customer) and the callee (agent) is streamed to the WebSocket TCP ngrok URL.
 
-This setup ensures that your inbound call stream can handle voice data effectively using the Piopiy package, with both HTTP and WebSocket configurations in place.
+Ensure that your [**ws_url**](https://github.com/telecmi/piopiy_node_example/blob/development/ai_streaming/inbound_call_streaming.js#L11) is correctly configured.
 
 ### 9. Parameters type and description
 
