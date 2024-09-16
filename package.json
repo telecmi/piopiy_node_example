@@ -1,6 +1,6 @@
 {
   "dependencies": {
     "express": "^4.19.2",
-    "piopiy": "^1.0.3"
+    "piopiy": "^1.0.6"
   }
 }

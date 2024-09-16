@@ -29,7 +29,9 @@ app.post("/stream", (req, res) => {
   const ws_url = "ws://example.tcp.ngrok.url"; // Your WebSocket TCP ngrok URL
 
   const options = {
-    listen_mode: "both", // Determines which part of the call audio is captured and stored
+    listen_mode: "both", // Specifies who hears the streamed audio. Options are callee, caller, or both.
+    voice_quality: "8000", // The desired voice quality in bits per second. Options are 8000, 16000.
+     stream_on_answer: true // Whether to start streaming after the call is answered.
   };
 
   action.call(ws_url, options);
@@ -116,4 +118,6 @@ These are the list of parameters and its description
 
 | parameter   | Type   | Description                                                          |
 | ----------- | ------ | -------------------------------------------------------------------- |
-| listen_mode | string | Determines which part of the call audio is captured and stored <ul><li> **Caller:** The voice of the person who initiated the call will be recorded and stored.</li><li> **Calle:** The voice of the person receiving the call will be recorded and stored.</li><li> **Both:** the voices from both the caller and the callee will be recorded and stored.</li></ul> |
+| listen_mode | string | Determines which part of the call audio is captured and stored <ul><li> **Caller:** The voice of the person who initiated the call will be recorded and stored.</li><li> **Callee:** The voice of the person receiving the call will be recorded and stored.</li><li> **Both:** the voices from both the caller and the callee will be recorded and stored.</li></ul> |
+| voice_quality    | string  | The desired voice quality in bits per second. Options are 8000, 16000.|
+| stream_on_answer | boolean | Whether to start streaming after the call is answered. |

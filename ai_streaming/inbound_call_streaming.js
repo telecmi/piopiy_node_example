@@ -12,7 +12,9 @@ app.post('/stream', (req, res) => {
 
     const options = {
 
-        listen_mode: "both" // Determines which part of the call audio is captured and stored
+        listen_mode: "both", // Specifies who hears the streamed audio. Options are callee, caller, or both.
+        voice_quality: "8000", // The desired voice quality in bits per second. Options are 8000, 16000.
+        stream_on_answer: true // Whether to start streaming after the call is answered.
     };
 
     action.call(ws_url, options)
