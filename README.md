@@ -11,7 +11,7 @@ Before you start, ensure you have the following:
 - <a href="https://www.npmjs.com/" target="_blank">npm</a>
 - <a href="https://ngrok.com/" target="_blank">ngrok</a>
 - <a href="https://www.npmjs.com/package/express" target="_blank">express</a>
-- <a href="https://www.npmjs.com/package/piopiy" target="_blank">piopiy</a> (>= 1.0.3 required)
+- <a href="https://www.npmjs.com/package/piopiy" target="_blank">piopiy</a> (>= 1.0.6 required)
 
 ### Clone the repository
 

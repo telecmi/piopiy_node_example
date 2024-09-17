@@ -10,12 +10,12 @@ const piopiy_number = "Your piopiy number"; // Your piopiy number provided by th
 const agent_number = "Your agent phone number"; // Your agent phone number with country code.
 const options = { duration: 10, timeout: 20, loop: 1, record: true };
 
-action.call(customer_number, piopiy_number, options);
+action.call(agent_number, piopiy_number, options);
 
 const pcmo_function = action.PCMO(); // PCMO actions to execute during the call
 
 const pcmo_call = async () =>{
-    const res = await piopiy.voice.call(agent_number, piopiy_number, pcmo_function, options)
+    const res = await piopiy.voice.call( customer_number, piopiy_number, pcmo_function, options)
 }
 
 pcmo_call()
